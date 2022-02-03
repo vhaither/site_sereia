@@ -978,18 +978,19 @@ window["tracker"].send("pageview", {
 });
 </script>
  
-<!-- TAG DE TEMPO -->
-<script type="text/javascript"> document.addEventListener("DOMContentLoaded",function(){
-setTimeout(() => {
-tracker.send('event',{
-'category':'Tempo na página',
-'action':'DOMContentLoaded',
-'label':'Ficou mais de 1 minuto na página',
-'cd1':'Source Code'
-})
-}, 5000)
-},{once:false}); </script>
-<!-- FIM DA TAG DE TEMPO -->
+<!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
+<script type="text/javascript"> 
+document.addEventListener("DOMContentLoaded",function(){
+  setTimeout(() => {
+    tracker.send('event',{
+      'category':'Tempo na página',
+      'action':'DOMContentLoaded',
+      'label':'Ficou mais de 1 minuto na página',
+      'cd1':'Source Code'
+    })
+  }, 60000)
+},{once:true}); </script>
+<!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
   
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
