@@ -978,19 +978,6 @@ window["tracker"].send("pageview", {
 });
 </script>
   
-<!-- Quantos ficaram pelo menos 1 minuto no site? -->
-<script type="text/javascript"> document.addEventListener("DOMContentLoaded ",function(){
-setTimeout(function(){
-tracker.send('event',{
-'category':'Tempo na página',
-'action':'DOMContentLoaded',
-'label':'Ficou mais de 1 minuto na página',
-'cd1':'Source Code'
-})
-}, 10000);
-},{once:true});  </script>
-<!-- END Quantos ficaram pelo menos 1 minuto no site? -->
-  
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
