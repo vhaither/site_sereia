@@ -935,6 +935,21 @@
 
     ga('send', 'pageview');
   </script>
+ 
+  
+ 
+<!-- Quantos ficaram pelo menos 1 minuto no site? -->
+document.addEventListener("DOMContentLoaded ",function(){
+setTimeout(function(){
+tracker.send('event',{
+'category':'Tempo na página',
+'action':'DOMContentLoaded',
+'label':'Ficou mais de 1 minuto na página',
+'cd1':'Source Code'
+})
+}, 10000);
+},{once:true});  
+<!-- END Quantos ficaram pelo menos 1 minuto no site? -->
   
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
