@@ -996,7 +996,7 @@ document.addEventListener('scroll', function() {
 <!-- FIM: Quantos rolaram a página até o final?-->
 
 <!-- Quantos visualizaram o formulário de contato?-->
-<script type="text/javascript">
+<script>
 document.addEventListener('scroll', function() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
@@ -1013,7 +1013,7 @@ document.addEventListener('scroll', function() {
 <!-- FIM: Quantos visualizaram o formulário de contato?-->
 
 <!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
-<script type="text/javascript">
+<script>
 document.querySelector('#contactForm .row').addEventListener('input', function(e) {
   tracker.send('event', {
     'category': 'Contato',
@@ -1029,7 +1029,7 @@ document.querySelector('#contactForm .row').addEventListener('input', function(e
 <!-- FIM: Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
   
 <!-- Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
-<script type="text/javascript">
+<script>
 document.querySelector('button.btn.btn-xl').addEventListener('click', function() {
 
   let invalidName = document.querySelector('.form-control#name').getAttribute('aria-invalid');
@@ -1057,7 +1057,7 @@ document.querySelector('button.btn.btn-xl').addEventListener('click', function()
 <!-- FIM: Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
   
 <!-- Quantas pessoas interagiram com o menu superior?-->
-<script type="text/javascript">
+<script>
 document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(function(menu) {
   menu.addEventListener("click", function() {
     tracker.send('event', {
@@ -1074,7 +1074,7 @@ document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand
 <!-- FIM: Quantas pessoas interagiram com o menu superior?-->
   
 <!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
-<script type="text/javascript">
+<script>
 document.body.querySelectorAll(".list-inline.social-buttons").forEach(function(sMedia) {
   sMedia.addEventListener("click", function(e) {
     if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
@@ -1103,7 +1103,7 @@ document.body.querySelectorAll(".list-inline.social-buttons").forEach(function(s
 <!-- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
   
 <!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
-<script type="text/javascript">
+<script>
 document.addEventListener("DOMContentLoaded", function() {
   setTimeout(() => {
     tracker.send('event', {
