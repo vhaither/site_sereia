@@ -2603,10 +2603,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
 </script>
 
-<!-- Quantos rolaram a página até o final? -->
+<!-- Quantos rolaram a página até o final?-->
 <script type="text/javascript">
-
-function  rola() {
+function rola() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
       'category': 'Navegação',
@@ -2614,16 +2613,17 @@ function  rola() {
       'label': 'Final da página',
       'cd3': 'Source Code'
     })
-document.removeEventListener('scroll', rola);
-  }};
+    document.removeEventListener('scroll', rola);
+  }
+};
 
 document.addEventListener('scroll', rola);
 </script>
 <!-- FIM: Quantos rolaram a página até o final?-->
 
-<!-- Quantos visualizaram o formulário de contato?
+<!-- Quantos visualizaram o formulário de contato?-->
 <script type="text/javascript">
-document.addEventListener('scroll', function() {
+function visCont() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
       'category': 'Navegação',
@@ -2631,12 +2631,13 @@ document.addEventListener('scroll', function() {
       'label': 'Form de contato',
       'cd3': 'Source Code'
     })
+    document.removeEventListener('scroll', visCont);
   }
-}, {
-  once: false
-}); 
+};
+
+document.addEventListener('scroll', visCont);
 </script>
--- FIM: Quantos visualizaram o formulário de contato?-->
+<!-- FIM: Quantos visualizaram o formulário de contato?-->
 
 
 <!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
@@ -2685,52 +2686,59 @@ document.querySelector('button.btn.btn-xl').addEventListener('click', function()
 <!-- FIM: Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
 
 
-<!-- Quantas pessoas interagiram com o menu superior?
+<!-- Quantas pessoas interagiram com o menu superior?-->
 <script type="text/javascript">
-document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(function(menu) {
-  menu.addEventListener("click", function() {
-    tracker.send('event', {
-      'category': 'Navegação',
-      'action': 'Click no menu superior',
-      'label': 'Menu superior',
-      'cd3': 'Source Code'
-    })
-  }, {
-    once: true
+function navegMenu(ev) {
+  tracker.send('event', {
+    'category': 'Navegação',
+    'action': 'Click no menu superior',
+    'label': 'Menu superior',
+    'cd3': 'Source Code'
   });
-}); 
-</script>
-FIM: Quantas pessoas interagiram com o menu superior?-->
+  document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(menu => {
+    menu.removeEventListener("click", navegMenu)
+  });
+}
 
 
-<!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev?
-<script type="text/javascript">
-document.body.querySelectorAll(".list-inline.social-buttons").forEach(function(sMedia) {
-  sMedia.addEventListener("click", function(e) {
-    if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
-      e2 = e.target
-    } else {
-      e2 = e.target.querySelector('i')
-    };
-    if (document.getElementById('team').contains(sMedia)) {
-      quem = 'DEV'
-    } else {
-      quem = 'WEBSITE'
-    };
-    tracker.send('event', {
-      'category': 'Rede Social',
-      'action': 'Click nos links de rede social',
-      'label': 'Links de Rede Social',
-      'cd3': 'Source Code',
-      'cd1': quem,
-      'cd2': e2.className.replace('fa fa-', '')
-    })
-  }, {
-    once: true
-  })
+document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(menu => {
+  menu.addEventListener("click", navegMenu)
 });
 </script>
- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
+<!-- FIM: Quantas pessoas interagiram com o menu superior?-->
+
+
+<!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
+<script type="text/javascript">
+function func1(e) {
+  if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
+    e2 = e.target
+  } else {
+    e2 = e.target.querySelector('i')
+  };
+  if (document.getElementById('team').contains(e.target)) {
+    quem = 'DEV'
+  } else {
+    quem = 'WEBSITE'
+  };
+  tracker.send('event', {
+    'category': 'Rede Social',
+    'action': 'Click nos links de rede social',
+    'label': 'Links de Rede Social',
+    'cd3': 'Source Code',
+    'cd2': e2.className.replace('fa fa-', ''),
+    'cd1': quem
+  })
+  document.querySelectorAll('.list-inline.social-buttons a').forEach(bot => {
+    bot.removeEventListener('click', func1)
+  });
+};
+
+document.querySelectorAll('.list-inline.social-buttons a').forEach(bot => {
+  bot.addEventListener('click', func1)
+});
+</script>
+<!-- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
 
 
 <!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
@@ -2749,9 +2757,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }); 
 </script>
 <!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
-
-
-
 
   
 </body>
