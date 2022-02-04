@@ -2615,10 +2615,27 @@ document.addEventListener('scroll', function() {
     })
   }
 }, {
-  once: true
+  once: false
 }); 
 </script>
 <!-- FIM: Quantos rolaram a página até o final?-->
+
+<!-- Quantos visualizaram o formulário de contato?-->
+<script type="text/javascript">
+document.addEventListener('scroll', function() {
+  if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
+    tracker.send('event', {
+      'category': 'Navegação',
+      'action': 'Visualizou o form de contato',
+      'label': 'Form de contato',
+      'cd3': 'Source Code'
+    })
+  }
+}, {
+  once: false
+}); 
+</script>
+<!-- FIM: Quantos visualizaram o formulário de contato?-->
 
 
 <!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
@@ -2636,6 +2653,7 @@ document.querySelector('#contactForm .row').addEventListener('input', function(e
 }); 
 </script>
 <!-- FIM: Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
+
 
 <!-- Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
 <script type="text/javascript">
@@ -2665,6 +2683,7 @@ document.querySelector('button.btn.btn-xl').addEventListener('click', function()
 </script>
 <!-- FIM: Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
 
+
 <!-- Quantas pessoas interagiram com o menu superior?-->
 <script type="text/javascript">
 document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(function(menu) {
@@ -2681,6 +2700,7 @@ document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand
 }); 
 </script>
 <!-- FIM: Quantas pessoas interagiram com o menu superior?-->
+
 
 <!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
 <script type="text/javascript">
@@ -2711,6 +2731,7 @@ document.body.querySelectorAll(".list-inline.social-buttons").forEach(function(s
 </script>
 <!-- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
 
+
 <!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -2727,6 +2748,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }); 
 </script>
 <!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
+
 
 
 
