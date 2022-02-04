@@ -2613,19 +2613,6 @@ document.addEventListener('scroll', function() {
       'label': 'Final da página',
       'cd3': 'Source Code'
     })
-  }
-}, {
-  once: true
-}); 
-</script>
-<!-- FIM: Quantos rolaram a página até o final?-->
-
-
-
-<!-- Quantos visualizaram o formulário de contato?-->
-<script type="text/javascript">
-document.addEventListener('scroll', function(n) {
-  if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
       'category': 'Navegação',
       'action': 'Visualizou o form de contato',
@@ -2637,7 +2624,8 @@ document.addEventListener('scroll', function(n) {
   once: true
 }); 
 </script>
-<!-- FIM: Quantos visualizaram o formulário de contato?-->
+<!-- FIM: Quantos rolaram a página até o final?-->
+
 
 <!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
 <script type="text/javascript">
