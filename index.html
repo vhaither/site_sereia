@@ -2758,6 +2758,22 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
 
+<!-- O pop-up com o telefone apareceu na página? Note que ele aparecer na página não configura uma não-rejeição do usuário.-->
+<script type="text/javascript">
+document.querySelector('#call-me-baby').addEventListener("transitionend", function() {
+  tracker.send('event', {
+    'category': 'Telefone?',
+    'action': 'Pop-up terminou a sua animação',
+    'label': 'Pop-up',
+    'cd3': 'Source Code'
+  })
+
+}, {
+  once: true
+});
+</script>
+<!-- FIM: O pop-up com o telefone apareceu na página? Note que ele aparecer na página não configura uma não-rejeição do usuário. -->
+  
   
 </body>
 
