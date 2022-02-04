@@ -2603,14 +2603,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
 </script>
 
-<!-- Quantos visualizaram o formulário de contato?-->
+<!-- Quantos rolaram a página até o final?-->
 <script type="text/javascript">
 document.addEventListener('scroll', function() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
       'category': 'Navegação',
-      'action': 'Visualizou o form de contato',
-      'label': 'Form de contato',
+      'action': 'Rolou até o final da página',
+      'label': 'Final da página',
       'cd3': 'Source Code'
     })
   }
@@ -2618,7 +2618,8 @@ document.addEventListener('scroll', function() {
   once: true
 }); 
 </script>
-<!-- FIM: Quantos visualizaram o formulário de contato?-->
+<!-- FIM: Quantos rolaram a página até o final?-->
+
 
 <!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
 <script type="text/javascript">
