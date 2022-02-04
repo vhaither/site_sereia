@@ -978,8 +978,9 @@ window["tracker"].send("pageview", {
 });
 </script>
  
-<!-- Quantos rolaram a página até o final?-->
+
 <script>
+<!-- Quantos rolaram a página até o final?-->
 document.addEventListener('scroll', function() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
@@ -992,11 +993,9 @@ document.addEventListener('scroll', function() {
 }, {
   once: true
 }); 
-</script>
 <!-- FIM: Quantos rolaram a página até o final?-->
 
 <!-- Quantos visualizaram o formulário de contato?-->
-<script>
 document.addEventListener('scroll', function() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
@@ -1009,11 +1008,9 @@ document.addEventListener('scroll', function() {
 }, {
   once: true
 }); 
-</script>
 <!-- FIM: Quantos visualizaram o formulário de contato?-->
 
 <!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
-<script>
 document.querySelector('#contactForm .row').addEventListener('input', function(e) {
   tracker.send('event', {
     'category': 'Contato',
@@ -1025,11 +1022,9 @@ document.querySelector('#contactForm .row').addEventListener('input', function(e
 }, {
   once: true
 }); 
-</script>
 <!-- FIM: Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
   
 <!-- Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
-<script>
 document.querySelector('button.btn.btn-xl').addEventListener('click', function() {
 
   let invalidName = document.querySelector('.form-control#name').getAttribute('aria-invalid');
@@ -1053,11 +1048,9 @@ document.querySelector('button.btn.btn-xl').addEventListener('click', function()
 }, {
   once: true
 }); 
-</script>
 <!-- FIM: Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
   
 <!-- Quantas pessoas interagiram com o menu superior?-->
-<script>
 document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(function(menu) {
   menu.addEventListener("click", function() {
     tracker.send('event', {
@@ -1070,11 +1063,9 @@ document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand
     once: true
   });
 }); 
-</script>
 <!-- FIM: Quantas pessoas interagiram com o menu superior?-->
   
 <!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
-<script>
 document.body.querySelectorAll(".list-inline.social-buttons").forEach(function(sMedia) {
   sMedia.addEventListener("click", function(e) {
     if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
@@ -1099,11 +1090,9 @@ document.body.querySelectorAll(".list-inline.social-buttons").forEach(function(s
     once: true
   })
 });
-</script>
 <!-- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
   
 <!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
-<script>
 document.addEventListener("DOMContentLoaded", function() {
   setTimeout(() => {
     tracker.send('event', {
@@ -1116,8 +1105,8 @@ document.addEventListener("DOMContentLoaded", function() {
 }, {
   once: true
 }); 
-</script>
 <!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
+</script>
   
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
