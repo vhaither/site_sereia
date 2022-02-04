@@ -979,7 +979,7 @@ window["tracker"].send("pageview", {
 </script>
  
 <!-- Quantos rolaram a página até o final?-->
-<script type="text/javascript">
+<script>
 document.addEventListener('scroll', function() {
   if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
     tracker.send('event', {
