@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N4NR3SH');</script>
+<!-- End Google Tag Manager -->
+
 <!-- comentário aqui -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -947,6 +956,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body id="page-top" class="index">
+  
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4NR3SH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
   <script>
 (function(tn, tc, cn, sn) {
   window[tn] = window[tn] || {
@@ -2602,178 +2617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, Math.random() * 12000 + 5000);
     
 </script>
-
-<!-- Quantos rolaram a página até o final?-->
-<script type="text/javascript">
-function rola() {
-  if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
-    tracker.send('event', {
-      'category': 'Navegação',
-      'action': 'Rolou até o final da página',
-      'label': 'Final da página',
-      'cd3': 'Source Code'
-    })
-    document.removeEventListener('scroll', rola);
-  }
-};
-
-document.addEventListener('scroll', rola);
-</script>
-<!-- FIM: Quantos rolaram a página até o final?-->
-
-<!-- Quantos visualizaram o formulário de contato?-->
-<script type="text/javascript">
-function visCont() {
-  if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
-    tracker.send('event', {
-      'category': 'Navegação',
-      'action': 'Visualizou o form de contato',
-      'label': 'Form de contato',
-      'cd3': 'Source Code'
-    })
-    document.removeEventListener('scroll', visCont);
-  }
-};
-
-document.addEventListener('scroll', visCont);
-</script>
-<!-- FIM: Quantos visualizaram o formulário de contato?-->
-
-
-<!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
-<script type="text/javascript">
-document.querySelector('#contactForm .row').addEventListener('input', function(e) {
-  tracker.send('event', {
-    'category': 'Contato',
-    'action': 'Um dos forms recebeu um input',
-    'label': 'Formulário de contato',
-    'cd1': e.target.getAttribute("id"),
-    'cd3': 'Source Code'
-  })
-}, {
-  once: true
-}); 
-</script>
-<!-- FIM: Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
-
-
-<!-- Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
-<script type="text/javascript">
-document.querySelector('button.btn.btn-xl').addEventListener('click', function() {
-
-  let invalidName = document.querySelector('.form-control#name').getAttribute('aria-invalid');
-  let invalidEmail = document.querySelector('.form-control#email').getAttribute('aria-invalid');
-  let invalidPhone = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
-  let invalidMessage = document.querySelector('.form-control#message').getAttribute('aria-invalid');
-
-
-  if (invalidName == 'false' && invalidEmail == 'false' && invalidPhone == 'false' && invalidMessage == 'false') {
-    mensagem = 'Sucesso!'
-  } else {
-    mensagem = 'Falha!'
-  };
-  tracker.send('event', {
-    'category': 'Contato',
-    'action': 'Click no botão de enviar mensagem',
-    'label': 'Formulário de contato',
-    'cd3': 'Source Code',
-    'cd1': mensagem
-  })
-}, {
-  once: true
-}); 
-</script>
-<!-- FIM: Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
-
-
-<!-- Quantas pessoas interagiram com o menu superior?-->
-<script type="text/javascript">
-function navegMenu(ev) {
-  tracker.send('event', {
-    'category': 'Navegação',
-    'action': 'Click no menu superior',
-    'label': 'Menu superior',
-    'cd3': 'Source Code'
-  });
-  document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(menu => {
-    menu.removeEventListener("click", navegMenu)
-  });
-}
-
-
-document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(menu => {
-  menu.addEventListener("click", navegMenu)
-});
-</script>
-<!-- FIM: Quantas pessoas interagiram com o menu superior?-->
-
-
-<!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
-<script type="text/javascript">
-function func1(e) {
-  if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
-    e2 = e.target
-  } else {
-    e2 = e.target.querySelector('i')
-  };
-  if (document.getElementById('team').contains(e.target)) {
-    quem = 'DEV'
-  } else {
-    quem = 'WEBSITE'
-  };
-  tracker.send('event', {
-    'category': 'Rede Social',
-    'action': 'Click nos links de rede social',
-    'label': 'Links de Rede Social',
-    'cd3': 'Source Code',
-    'cd2': e2.className.replace('fa fa-', ''),
-    'cd1': quem
-  })
-  document.querySelectorAll('.list-inline.social-buttons a').forEach(bot => {
-    bot.removeEventListener('click', func1)
-  });
-};
-
-document.querySelectorAll('.list-inline.social-buttons a').forEach(bot => {
-  bot.addEventListener('click', func1)
-});
-</script>
-<!-- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
-
-
-<!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(() => {
-    tracker.send('event', {
-      'category': 'Tempo na página',
-      'action': 'Ficou mais de 1 minuto na página',
-      'label': 'Página',
-      'cd3': 'Source Code'
-    })
-  }, 60000)
-}, {
-  once: true
-}); 
-</script>
-<!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
-
-<!-- O pop-up com o telefone apareceu na página? Note que ele aparecer na página não configura uma não-rejeição do usuário.-->
-<script type="text/javascript">
-document.querySelector('#call-me-baby').addEventListener("transitionend", function() {
-  tracker.send('event', {
-    'category': 'Telefone?',
-    'action': 'Pop-up terminou a sua animação',
-    'label': 'Pop-up',
-    'cd3': 'Source Code'
-  })
-
-}, {
-  once: true
-});
-</script>
-<!-- FIM: O pop-up com o telefone apareceu na página? Note que ele aparecer na página não configura uma não-rejeição do usuário. -->
-  
+ 
   
 </body>
 
