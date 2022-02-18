@@ -2617,7 +2617,122 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, Math.random() * 12000 + 5000);
     
 </script>
- 
+
+<!-- Quantos rolaram a página até o final?-->
+<script type="text/javascript">
+function rola() {
+  if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
+    dataLayer.push({'event': 'rolou até o final da página'});
+    document.removeEventListener('scroll', rola);
+  }
+};
+document.addEventListener('scroll', rola);
+</script>
+<!-- FIM: Quantos rolaram a página até o final?-->
+
+
+<!-- Quantos visualizaram o formulário de contato?-->
+<script type="text/javascript">
+function visCont() {
+  if (window.scrollY == document.body.scrollHeight - window.innerHeight) {
+    dataLayer.push({'event': 'visualizou o form de contato'});
+    document.removeEventListener('scroll', visCont);
+  }
+};
+document.addEventListener('scroll', visCont);
+</script>
+<!-- FIM: Quantos visualizaram o formulário de contato?-->
+
+
+<!-- Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
+<script type="text/javascript">
+document.querySelector('#contactForm .row').addEventListener('input', function(e) {
+  dataLayer.push({'event': 'começou a preencher um input', 'InputID': e.target.getAttribute("id")});
+}, {
+  once: true
+}); 
+</script>
+<!-- FIM: Quantos começaram a preencher o formulário de contato e por qual input do formulário? -->
+
+
+<!-- Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
+<script type="text/javascript">
+document.querySelector('button.btn.btn-xl').addEventListener('click', function() {
+
+  let invalidName = document.querySelector('.form-control#name').getAttribute('aria-invalid');
+  let invalidEmail = document.querySelector('.form-control#email').getAttribute('aria-invalid');
+  let invalidPhone = document.querySelector('.form-control#phone').getAttribute('aria-invalid');
+  let invalidMessage = document.querySelector('.form-control#message').getAttribute('aria-invalid');
+
+
+  if (invalidName == 'false' && invalidEmail == 'false' && invalidPhone == 'false' && invalidMessage == 'false') {
+    mensagem = 'Sucesso!'
+  } else {
+    mensagem = 'Falha!'
+  };
+  dataLayer.push({'event': 'enviou o form', 'condição do envio': mensagem});
+}, {
+  once: true
+}); 
+</script>
+<!-- FIM: Quantos enviaram o formulário de contato? Foi com sucesso ou falha?-->
+
+
+<!-- Quantas pessoas interagiram com o menu superior?-->
+<script type="text/javascript">
+function navegMenu(ev) {
+  dataLayer.push({'event': 'click no menu superior'});
+  document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(menu => {
+    menu.removeEventListener("click", navegMenu)
+  });
+}
+document.querySelectorAll('.collapse.navbar-collapse .page-scroll, .navbar-brand.page-scroll ').forEach(menu => {
+  menu.addEventListener("click", navegMenu)
+});
+</script>
+<!-- FIM: Quantas pessoas interagiram com o menu superior?-->
+
+
+<!-- Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
+<script type="text/javascript">
+function func1(e) {
+  if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
+    e2 = e.target
+  } else {
+    e2 = e.target.querySelector('i')
+  };
+  if (document.getElementById('team').contains(e.target)) {
+    quem = 'DEV'
+  } else {
+    quem = 'WEBSITE'
+  };
+  dataLayer.push({'event': 'click nos links de rede social', 'quem': quem,'qual':e2.className.replace('fa fa-', '')});
+  document.querySelectorAll('.list-inline.social-buttons a').forEach(bot => {
+    bot.removeEventListener('click', func1)
+  });
+};
+
+document.querySelectorAll('.list-inline.social-buttons a').forEach(bot => {
+  bot.addEventListener('click', func1)
+});
+</script>
+<!-- FIM: Quantas pessoas clicaram nos links de mídias sociais? E qual foi a mídia? Foi do próprio site ou a de um dev? -->
+
+
+
+<!-- Quantos ficaram pelo menos 1 minuto no seu site? -->
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(() => {
+    dataLayer.push({'event': 'ficou mais de 1 min no site'});
+  }, 60000)
+}, {
+  once: true
+}); 
+</script>
+<!-- FIM: Quantos ficaram pelo menos 1 minuto no seu site? -->
+
+
   
 </body>
 
